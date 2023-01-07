@@ -1,3 +1,3 @@
 # PythonExercise
-python exercise practice for beginner
+Python exercise practice for beginner
 
