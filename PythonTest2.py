@@ -21,13 +21,24 @@
 #     print("The Number is not divisble by 5")
 #------Python Exercise 3 ---------
 #-- Geting list number input from the user
-list_number = input("Enter the list of number")
-print("\n") 
-lists = list_number.split()
-print("List: ", lists)
-for i in range(len(lists)):
-   lists[i] = int(list_number[i])
-    # print("Sum = ", sum(lists))
-print(lists)
-    
+# list_number = input("Enter the list of number")
+# print("\n") 
+# lists = list_number.split()
+# print("List: ", lists)
+# for i in range(len(lists)):
+#    lists[i] = int(list_number[i])
+#     # print("Sum = ", sum(lists))
+# print(lists)
+num = int(input("Enter a number greater than 1: "))
+
+oper = input("Choose a math operation (+, -, *): ")
+for i in range(1, num):
+    if oper == '+':
+        print(num, oper, i, '=', num + i)
+    elif oper == '-':
+        print(num, oper, i, '=', num - i)
+    elif oper == '*':
+        print(num, oper, i, '=', num * i)
+    else:
+        print('operator is not supported')
     
