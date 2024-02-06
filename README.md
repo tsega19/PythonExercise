@@ -1,3 +1,3 @@
 # PythonExercise
-Python exercise practice for beginner
+LeetCode problem practice for beginner
 
