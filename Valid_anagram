@@ -1,0 +1,31 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        """
+        Checks if two strings are anagrams of each other.
+
+        Args:
+            s: The first string.
+            t: The second string.
+
+        Returns:
+            True if the strings are anagrams, False otherwise.
+        """
+
+        # Check if the lengths of the strings are equal. If not, they cannot be anagrams.
+        if len(s) != len(t):
+            return False
+
+        # Create a dictionary to store the character counts for each string.
+        char_counts = {}
+        for char in s:
+            char_counts[char] = char_counts.get(char, 0) + 1
+
+        # Check if the character counts for each string are equal.
+        for char in t:
+            if char not in char_counts or char_counts[char] == 0:
+                return False
+            char_counts[char] -= 1
+
+        # All character counts are equal, so the strings are anagrams.
+        return True
+
