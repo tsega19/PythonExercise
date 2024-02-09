@@ -1,0 +1,9 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {} # Create an empty dictionary to store previously seen numbers and their indices
+        for i, n in enumerate(nums): # Loop through the list of numbers along with their indices
+            diff = target - n # Calculate the difference between the target and the current number
+            if diff in prevMap: # If the difference is found in the dictionary (meaning a pair that sums up to the target is found)
+                return [prevMap[diff], i] # Return the indices of the pair that sums up to the target
+            prevMap[n] = i # Store the current number and its index in the dictionary for future reference
+        return [] # If no such pair is found, return an empty list
