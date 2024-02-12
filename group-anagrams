@@ -1,12 +1,22 @@
+# Importing the List class from the typing module
 from typing import List
 
+# Defining a class named Solution
 class Solution:
+    # Defining a method named twoSum
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # Initializing an empty dictionary to store previously encountered numbers and their indices
         prevMap = {} 
         
+        # Looping over the elements of the nums list along with their indices
         for i, n in enumerate(nums):
+            # Calculating the difference between the target and the current number
             diff = target - n
+            # Checking if the difference exists as a key in the prevMap dictionary
             if diff in prevMap:
+                # If found, returning a list containing the indices of the two numbers whose sum equals the target
                 return [prevMap[diff], i]
+            # Storing the current number along with its index in the prevMap dictionary
             prevMap[n] = i
+        # If no pair of numbers is found whose sum equals the target, returning an empty list
         return []
