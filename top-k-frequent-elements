@@ -1,0 +1,22 @@
+from collections import Counter  # Importing Counter from collections module
+import heapq  # Importing heapq module for heap operations
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # Function to group anagrams in a list of strings
+        res = defaultdict(list)  # Create a defaultdict to store groups of anagrams
+        for s in strs:  # Iterate through each string in the input list
+            count = [0] * 26  # Create a list to count occurrences of each letter (a-z)
+            for c in s:  # Iterate through each character in the string
+                count[ord(c) - ord("a")] += 1  # Increment the count of the character
+            res[tuple(count)].append(s)  # Add the string to the appropriate group based on its character count
+        return list(res.values())  # Return a list of grouped anagrams
+    
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        # Function to find the k most frequent elements in an array
+        count = Counter(nums)  # Count the frequency of each element using Counter
+        heap = [(-freq, num) for num, freq in count.items()]  # Create a heap of tuples (frequency, element)
+        heapq.heapify(heap)  # Convert the list into a heap
+        topk = []  # List to store the top k elements
+        for _ in range(k):  # Iterate k times
+            topk.append(heapq.heappop(heap)[1])  # Pop the element with the highest frequency from the heap and add it 
